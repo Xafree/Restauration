@@ -1,5 +1,8 @@
-package com.company;
+package test;
 
+import com.company.Commande;
+import com.company.Restaurant;
+import com.company.Serveur;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
