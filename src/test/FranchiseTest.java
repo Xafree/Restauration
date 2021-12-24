@@ -29,7 +29,7 @@ public class FranchiseTest {
 
     @Test
     @DisplayName("Test franchise class")
-    public void test(){
+    public void Test_franchise_class(){
         Restaurant restaurant = new Restaurant();
         Serveur s = new Serveur();
         s.addCommande(new Commande(10F));
@@ -43,13 +43,16 @@ public class FranchiseTest {
 
     @Test
     @DisplayName("Test franchise class with 2 restaurant ")
-    public void test2(){
+    public void Test_franchise_class_with_2_restaurant(){
         Restaurant restaurant = new Restaurant();
         Restaurant restaurant2 = new Restaurant();
+
         Serveur s = new Serveur();
         Serveur s2 = new Serveur();
+
         s.addCommande(new Commande(10F));
         restaurant.AddServeur(s);
+
         this.franchise.addRestaurant(restaurant);
         this.franchise.addRestaurant(restaurant2);
 
@@ -58,19 +61,19 @@ public class FranchiseTest {
         Assert.assertEquals(result,franchise.getChiffreAffaire(), 0);
     }
 
-    @Test
-    @DisplayName("Test franchise class with 2 restaurant ")
-    @ParameterizedTest
-    @ValueSource(ints = { 1, 2, 1000})
-    public void test3(int i){
-        for(int j = 0; j<= i; j++){
-            this.franchise.addRestaurant(new Restaurant());
-            for(int y = 0; y <= i; y++ ){
-                this.franchise.getAtIndexRestaurant(j).AddServeur(new Serveur());
-                this.franchise.getAtIndexRestaurant(j).getIndexAtServeur(y).addCommande(new Commande(10F));
-            }
-        }
-        //float result = 10F;
-        Assert.assertEquals(this.franchise.getChiffreAffaire(),this.franchise.getChiffreAffaire(), 0);
-    }
+//    @Test
+//    @DisplayName("Test franchise class with 2 restaurant ")
+//    @ParameterizedTest
+//    @ValueSource(ints = { 1, 2, 1000})
+//    public void test3(int i){
+//        for(int j = 0; j<= i; j++){
+//            this.franchise.addRestaurant(new Restaurant());
+//            for(int y = 0; y <= i; y++ ){
+//                this.franchise.getAtIndexRestaurant(j).AddServeur(new Serveur());
+//                this.franchise.getAtIndexRestaurant(j).getIndexAtServeur(y).addCommande(new Commande(10F));
+//            }
+//        }
+//        //float result = 10F;
+//        Assert.assertEquals(this.franchise.getChiffreAffaire(),this.franchise.getChiffreAffaire(), 0);
+    //}
 }

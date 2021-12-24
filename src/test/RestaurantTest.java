@@ -25,14 +25,14 @@ public class RestaurantTest {
     }
 
     @Test
-    public void addServeurButCaEqualZero() {
+    public void Add_Server_ButCaEqualZero() {
         this.r.AddServeur(new Serveur());
         float result = 0F;
         Assert.assertEquals( result, this.r.getChiffreAffaire(), 0);
     }
 
     @Test
-    public void addServeurButCaEqual2() {
+    public void Add_Server_ButCaEqual2() {
         this.r.AddServeur(new Serveur());
         Serveur s = new Serveur();
         s.addCommande(new Commande(10F));
@@ -41,7 +41,7 @@ public class RestaurantTest {
         Assert.assertEquals( result, this.r.getChiffreAffaire(),0);
     }
     @Test
-    public void addServeurButCaEqual100() {
+    public void Add_Server_ButCaEqual100() {
         for(int i = 0 ; i <= 100; i++){
             Serveur s = new Serveur();
             s.addCommande(new Commande(10F));

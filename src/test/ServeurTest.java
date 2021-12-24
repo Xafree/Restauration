@@ -28,14 +28,14 @@ public class ServeurTest {
 
     @Test
     @DisplayName("Serveur avec un chiffre d'affaire a 0")
-    public void testAffaireZero(){
+    public void Test_Affair_Zero(){
         float chiffreAffaire = this.serveur.getChiffreAffaire();
         Assert.assertEquals(0,0.0F,chiffreAffaire);
     }
 
     @Test
     @DisplayName("Serveur serveur qui prend une commande et met a jour sont chiffre d'affaire")
-    public void testAddCommande(){
+    public void Test_Add_Command(){
         //Etant donnée un serveur qui ajoute une commande
         this.serveur.addCommande(new Commande(10F));
         //Resultat
@@ -46,7 +46,7 @@ public class ServeurTest {
 
     @Test
     @DisplayName("Serveur serveur qui prend 2 commandes et met a jour sont chiffre d'affaire")
-    public void testAddTwoCommande(){
+    public void Test_Add_Two_Command(){
         //Etant donnée un serveur qui ajoute une commande
         this.serveur.addCommande(new Commande(10.2F));
         this.serveur.addCommande(new Commande(10.1F));
