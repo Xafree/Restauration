@@ -1,14 +1,12 @@
 package test;
 
-import com.company.Commande;
+import com.company.Command;
 import com.company.Restaurant;
-import com.company.Serveur;
+import com.company.Server;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 public class RestaurantTest {
 
@@ -26,16 +24,16 @@ public class RestaurantTest {
 
     @Test
     public void Add_Server_ButCaEqualZero() {
-        this.r.AddServeur(new Serveur());
+        this.r.AddServeur(new Server());
         float result = 0F;
         Assert.assertEquals( result, this.r.getChiffreAffaire(), 0);
     }
 
     @Test
     public void Add_Server_ButCaEqual2() {
-        this.r.AddServeur(new Serveur());
-        Serveur s = new Serveur();
-        s.addCommande(new Commande(10F));
+        this.r.AddServeur(new Server());
+        Server s = new Server();
+        s.addCommande(new Command(10F));
         this.r.AddServeur(s);
         float result = 10F;
         Assert.assertEquals( result, this.r.getChiffreAffaire(),0);
@@ -43,8 +41,8 @@ public class RestaurantTest {
     @Test
     public void Add_Server_ButCaEqual100() {
         for(int i = 0 ; i <= 100; i++){
-            Serveur s = new Serveur();
-            s.addCommande(new Commande(10F));
+            Server s = new Server();
+            s.addCommande(new Command(10F));
             this.r.AddServeur(s);
         }
         float result = 1010F;

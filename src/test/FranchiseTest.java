@@ -1,25 +1,24 @@
 package test;
 
-import com.company.Commande;
+import Builder.BuilderCommand;
+import Builder.BuilderFranchise;
+import Builder.BuilderRestaurant;
+import Builder.BuilderServer;
 import com.company.Franchise;
 import com.company.Restaurant;
-import com.company.Serveur;
+import com.company.Server;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.ValueSource;
-
-import static org.junit.Assert.*;
 
 public class FranchiseTest {
 
     private Franchise franchise;
     @Before
     public void setUp() throws Exception {
-        franchise = new Franchise();
+        franchise = new BuilderFranchise().Build();
     }
 
     @After
@@ -31,8 +30,8 @@ public class FranchiseTest {
     @DisplayName("Test franchise class")
     public void Test_franchise_class(){
         Restaurant restaurant = new Restaurant();
-        Serveur s = new Serveur();
-        s.addCommande(new Commande(10F));
+        Server s = new BuilderServer().Build();
+        s.addCommande(new BuilderCommand().Build(10F));
         restaurant.AddServeur(s);
         franchise.addRestaurant(restaurant);
 
@@ -44,13 +43,13 @@ public class FranchiseTest {
     @Test
     @DisplayName("Test franchise class with 2 restaurant ")
     public void Test_franchise_class_with_2_restaurant(){
-        Restaurant restaurant = new Restaurant();
-        Restaurant restaurant2 = new Restaurant();
+        var restaurant = new BuilderRestaurant().Build();
+        Restaurant restaurant2 = new BuilderRestaurant().Build();
 
-        Serveur s = new Serveur();
-        Serveur s2 = new Serveur();
+        Server s = new BuilderServer().Build();
+        Server s2 = new BuilderServer().Build();
 
-        s.addCommande(new Commande(10F));
+        s.addCommande(new BuilderCommand().Build(10F));
         restaurant.AddServeur(s);
 
         this.franchise.addRestaurant(restaurant);

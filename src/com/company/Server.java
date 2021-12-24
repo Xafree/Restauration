@@ -2,16 +2,15 @@ package com.company;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
-public class Serveur {
+public class Server {
 
     private float chiffreAffaire;
-    private List<Commande> commandes;
+    private List<Command> commandes;
 
-    public Serveur() {
+    public Server() {
         this.chiffreAffaire = 0;
-        this.commandes = new ArrayList<Commande>();
+        this.commandes = new ArrayList<Command>();
     }
 
     public float getChiffreAffaire() {
@@ -22,11 +21,11 @@ public class Serveur {
         this.chiffreAffaire = chiffreAffaire;
     }
 
-    public List<Commande> getCurrentCommande() {
+    public List<Command> getCurrentCommande() {
         return this.commandes;
     }
 
-    public void addCommande(Commande commande){
+    public void addCommande(Command commande){
         this.commandes.add(commande);
         this.chiffreAffaire += commande.getPrix();
     }
