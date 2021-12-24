@@ -60,17 +60,31 @@ public class FranchiseTest {
 
     @Test
     @DisplayName("Test franchise class with 2 restaurant ")
-    @ParameterizedTest
-    @ValueSource(ints = { 1, 2, 1000})
-    public void test3(int i){
-        for(int j = 0; j<= i; j++){
+    public void test3(){
+        for(int j = 0; j<= 1000; j++){
             this.franchise.addRestaurant(new Restaurant());
-            for(int y = 0; y <= i; y++ ){
+            for(int y = 0; y <= 1000; y++ ){
                 this.franchise.getAtIndexRestaurant(j).AddServeur(new Serveur());
                 this.franchise.getAtIndexRestaurant(j).getIndexAtServeur(y).addCommande(new Commande(10F));
+                System.out.println(this.franchise.getAtIndexRestaurant(j).getChiffreAffaire());
             }
         }
-        //float result = 10F;
-        Assert.assertEquals(this.franchise.getChiffreAffaire(),this.franchise.getChiffreAffaire(), 0);
+        float result = 10F;
+        Assert.assertEquals(result,this.franchise.getChiffreAffaire(), 0);
+    }
+
+    @Test
+    @DisplayName("Test franchise class with 2 restaurant ")
+    public void test4(){
+        for(int j = 0; j<= 1000; j++){
+            this.franchise.addRestaurant(new Restaurant());
+            for(int y = 0; y <= 1000; y++ ){
+                this.franchise.getAtIndexRestaurant(j).AddServeur(new Serveur());
+                this.franchise.getAtIndexRestaurant(j).getIndexAtServeur(y).addCommande(new Commande(10F));
+                System.out.println(this.franchise.getAtIndexRestaurant(j).getChiffreAffaire());
+            }
+        }
+        float result = 10F;
+        Assert.assertEquals(result,this.franchise.getChiffreAffaire(), 0);
     }
 }
