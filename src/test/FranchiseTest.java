@@ -60,9 +60,7 @@ public class FranchiseTest {
 
     @Test
     @DisplayName("Test franchise class with 2 restaurant ")
-    @ParameterizedTest
-    @ValueSource(ints = { 1, 2, 1000})
-    public void test3(int i){
+        public void test3(int i){
         for(int j = 0; j<= i; j++){
             this.franchise.addRestaurant(new Restaurant());
             for(int y = 0; y <= i; y++ ){
