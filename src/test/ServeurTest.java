@@ -4,6 +4,7 @@ import com.company.Commande;
 import com.company.Serveur;
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.jupiter.api.DisplayName;
 
 import java.beans.PropertyEditorSupport;
 import java.util.List;
@@ -26,12 +27,14 @@ public class ServeurTest {
     }
 
     @Test
+    @DisplayName("Serveur avec un chiffre d'affaire a 0")
     public void testAffaireZero(){
         float chiffreAffaire = this.serveur.getChiffreAffaire();
         Assert.assertEquals(0,0.0F,chiffreAffaire);
     }
 
     @Test
+    @DisplayName("Serveur serveur qui prend une commande et met a jour sont chiffre d'affaire")
     public void testAddCommande(){
         //Etant donnée un serveur qui ajoute une commande
         this.serveur.addCommande(new Commande(10F));
@@ -42,6 +45,7 @@ public class ServeurTest {
     }
 
     @Test
+    @DisplayName("Serveur serveur qui prend 2 commandes et met a jour sont chiffre d'affaire")
     public void testAddTwoCommande(){
         //Etant donnée un serveur qui ajoute une commande
         this.serveur.addCommande(new Commande(10.2F));

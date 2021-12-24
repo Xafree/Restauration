@@ -16,6 +16,9 @@ public class Restaurant {
         this.serveurs.add(serveur);
         this.setChiffreAffaire(this.getChiffreAffaire()+serveur.getChiffreAffaire());
     }
+    public Serveur getIndexAtServeur(int j){
+        return this.serveurs.get(j);
+    }
 
     public float getChiffreAffaire() {
         return ChiffreAffaire;
@@ -24,4 +27,5 @@ public class Restaurant {
     public void setChiffreAffaire(float chiffreAffaire) {
         ChiffreAffaire = chiffreAffaire;
     }
+
 }
