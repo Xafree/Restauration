@@ -2,13 +2,16 @@ package com.company;
 
 public class Commande {
 
-    private float prix;
+    private double montant = 0;
 
-    public Commande(float prix) {
-        this.prix = prix;
+    public Commande() {
+    }
+    public Commande(double montant) {
+        this.montant = montant;
     }
 
-    public float getPrix() {
-        return this.prix;
+
+    public double getMontant() {
+        return montant;
     }
 }

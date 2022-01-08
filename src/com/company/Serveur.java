@@ -1,36 +1,25 @@
 package com.company;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-
 public class Serveur {
-
-    private float chiffreAffaire;
-    private List<Commande> commandes;
+    private String nom = null;
+    private double chiffreDaffaires = 0d;
 
     public Serveur() {
-        this.chiffreAffaire = 0;
-        this.commandes = new ArrayList<Commande>();
+        this.nom = nom;
+    }
+    public Serveur(String nom) {
+        this.nom = nom;
     }
 
-    public float getChiffreAffaire() {
-        return chiffreAffaire;
+    public double récupérerChiffreDAffaires() {
+        return this.chiffreDaffaires;
     }
 
-    public void setChiffreAffaire(float chiffreAffaire) {
-        this.chiffreAffaire = chiffreAffaire;
+    public double getChiffreAffaire() {
+        return chiffreDaffaires;
     }
 
-    public List<Commande> getCurrentCommande() {
-        return this.commandes;
+    public void prendreUneCommande(Commande commande) {
+        this.chiffreDaffaires = commande.getMontant();
     }
-
-    public void addCommande(Commande commande){
-        this.commandes.add(commande);
-        this.chiffreAffaire += commande.getPrix();
-    }
-
-
-
 }
