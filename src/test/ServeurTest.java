@@ -4,7 +4,10 @@ import com.company.Commande;
 import com.company.Serveur;
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
+import test.builder.CommandeBuilder;
+import test.builder.ServeurBuilder;
 
 import java.beans.PropertyEditorSupport;
 import java.util.List;
@@ -13,47 +16,38 @@ import static org.junit.Assert.*;
 
 public class ServeurTest {
 
-    private Serveur serveur;
-    private Commande commande;
+    private ServeurBuilder serveurBuilder;
+    private CommandeBuilder commandeBuilder;
 
     @org.junit.Before
     public void setUp() throws Exception {
-        this.serveur = new Serveur();
+        this.serveurBuilder = new ServeurBuilder();
+        this.commandeBuilder = new CommandeBuilder();
     }
 
     @org.junit.After
     public void tearDown() throws Exception {
-        this.serveur = null;
+        this.serveurBuilder = null;
+        this.commandeBuilder = null;
     }
 
     @Test
-    @DisplayName("Serveur avec un chiffre d'affaire a 0")
-    public void testAffaireZero(){
-        float chiffreAffaire = this.serveur.getChiffreAffaire();
-        Assert.assertEquals(0,0.0F,chiffreAffaire);
+    @DisplayName("ÉTANT DONNÉ un nouveau serveur " +
+            "QUAND on récupére son chiffre d'affaires " +
+            "ALORS celui-ci est à 0")
+    public void récupérationDuChiffreDAffairesDunServeur() {
+        double chiffreDAffairesDuServeur = this.serveurBuilder.build().getChiffreAffaire();
+        Assertions.assertEquals(0, chiffreDAffairesDuServeur);
     }
-
     @Test
-    @DisplayName("Serveur serveur qui prend une commande et met a jour sont chiffre d'affaire")
-    public void testAddCommande(){
-        //Etant donnée un serveur qui ajoute une commande
-        this.serveur.addCommande(new Commande(10F));
-        //Resultat
-        float resultat = 10F;
-        //test de l'égalité
-        Assert.assertEquals(0,resultat,this.serveur.getChiffreAffaire());
-    }
-
-    @Test
-    @DisplayName("Serveur serveur qui prend 2 commandes et met a jour sont chiffre d'affaire")
-    public void testAddTwoCommande(){
-        //Etant donnée un serveur qui ajoute une commande
-        this.serveur.addCommande(new Commande(10.2F));
-        this.serveur.addCommande(new Commande(10.1F));
-        //Resultat
-        float resultat = 20.3F;
-        //test de l'égalité
-        Assert.assertEquals(0,resultat,this.serveur.getChiffreAffaire());
+    @DisplayName("ÉTANT DONNÉ un nouveau serveur " +
+            "QUAND il prend une commande " +
+            "ALORS son chiffre d'affaires est le montant de celle-ci")
+    public void affecterChiffeDAffairesServeurAuMontantDeLaCommande() {
+        float montantCommande = 5;
+        Commande commande = new CommandeBuilder().dUnMontantDe(montantCommande).build();
+        this.serveurBuilder.build().addCommande(commande);
+        Assertions.assertEquals(montantCommande, commande.getPrix());
     }
 
 }

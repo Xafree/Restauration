@@ -11,4 +11,6 @@ public class Commande {
     public float getPrix() {
         return this.prix;
     }
+
+    public void setPrix(float montant){this.prix = montant;}
 }

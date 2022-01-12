@@ -7,6 +7,7 @@ public class Serveur {
 
     private float chiffreAffaire;
     private List<Commande> commandes;
+    private String nom;
 
     public Serveur() {
         this.chiffreAffaire = 0;
@@ -31,5 +32,7 @@ public class Serveur {
     }
 
 
-
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
 }
